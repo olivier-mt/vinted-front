@@ -25,11 +25,32 @@ const Offer = () => {
   return isLoading ? (
     "Is Loading ..."
   ) : (
-    <div>
+    <div className="offer">
       <Header />
-      <div>{`Offer id : ${id}`}</div>
-      <Link to={"/"}> To Home </Link>
-      <div>{data.product_name}</div>
+      <Link to={"/"}>To Home </Link>
+
+      <div className="offer-container">
+        <img src={data.product_pictures[0].secure_url} alt="" />
+
+        <div>
+          <div>
+            <div>{data.product_price}€</div>
+            <div>{`MARQUE: ${data.product_details[0].MARQUE}`}</div>
+            <div>{`ÉTAT: ${data.product_details[1].ÉTAT}`}</div>
+            <div>{`COULEUR: ${data.product_details[2].COULEUR}`}</div>
+            <div>{`EMPLACEMENT: ${data.product_details[3].EMPLACEMENT}`}</div>
+          </div>
+
+          {<hr />}
+
+          <div>{data.product_name}</div>
+          <div>{data.product_description}</div>
+          <div className="offer-owner">
+            <img src={data.owner.account.avatar.secure_url} alt="" />{" "}
+            {`${data.owner.account.username}`}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

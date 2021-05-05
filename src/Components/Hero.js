@@ -1,5 +1,7 @@
+import Banner from "/Users/oliviermountou/LeReacteur/React/projects/vinted-front/src/banner.jpg";
+
 const Hero = () => {
-  return <div className="hero">hero</div>;
+  return <img className="hero" src={Banner} alt="" />;
 };
 
 export default Hero;

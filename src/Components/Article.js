@@ -5,7 +5,12 @@ const Article = ({ elem }) => {
 
   return (
     <Link to={`/offer/${id}`} className="article">
-      {elem.product_name}
+      <img src={elem.product_pictures[0].secure_url} alt="" />
+      <div>{elem.product_price}</div>
+      <div>{elem.product_details[1].TAILLE}</div>
+      <div>{elem.product_details[0].MARQUE}</div>
+
+      <div>{elem.product_name}</div>
     </Link>
   );
 };
