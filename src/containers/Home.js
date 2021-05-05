@@ -4,7 +4,6 @@ import Hero from "../Components/Hero";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Article from "../Components/Article";
-import Banner from "/Users/oliviermountou/LeReacteur/React/projects/vinted-front/src/banner.jpg";
 
 const Home = () => {
   const [data, setData] = useState();

@@ -1,4 +1,4 @@
-import Banner from "/Users/oliviermountou/LeReacteur/React/projects/vinted-front/src/banner.jpg";
+import Banner from "../images/banner.jpg";
 
 const Hero = () => {
   return <img className="hero" src={Banner} alt="" />;
