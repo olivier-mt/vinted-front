@@ -4,8 +4,12 @@ import Hero from "../Components/Hero";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Article from "../Components/Article";
+import Cookies from "js-cookie";
 
-const Home = () => {
+const Home = ({ token }) => {
+  let test = Cookies.get("token");
+  console.log(test);
+
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -19,7 +23,7 @@ const Home = () => {
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
-        console.log(error);
+        console.log(error.response);
       }
     };
 
@@ -30,7 +34,6 @@ const Home = () => {
     "isLoding"
   ) : (
     <div>
-      <Header />
       <Hero />
       <div>Home</div>
       <Link to={"/offer"}> To offers</Link>

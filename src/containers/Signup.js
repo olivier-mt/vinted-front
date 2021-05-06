@@ -31,12 +31,11 @@ const Signup = ({ setToken }) => {
 
       //PUT TOKEN IN STATE
 
-      setToken(newToken);
-
       // SET NEW COOKIE (does not work)
 
-      Cookies.set("token", newToken, { expires: 10 });
+      Cookies.set("token", response.data.token, { expires: 10 });
 
+      setToken(newToken);
       // REDIRECT TO HOMEPAGE
 
       history.push("/");
@@ -59,7 +58,7 @@ const Signup = ({ setToken }) => {
           }}
         />
         <input
-          type="text"
+          type="email"
           name=""
           id=""
           placeholder="Email"
@@ -68,7 +67,7 @@ const Signup = ({ setToken }) => {
           }}
         />
         <input
-          type="text"
+          type="password"
           name=""
           id=""
           placeholder="Mot de passe"

@@ -26,7 +26,6 @@ const Offer = () => {
     "Is Loading ..."
   ) : (
     <div className="offer">
-      <Header />
       <Link to={"/"}>To Home </Link>
 
       <div className="offer-container">
