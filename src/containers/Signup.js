@@ -45,7 +45,7 @@ const Signup = ({ setToken }) => {
   };
 
   return (
-    <div>
+    <div className="signup-page">
       <p>S'inscrire</p>
       <form action="" onSubmit={handleOnSubmit}>
         <input

@@ -1,5 +1,11 @@
 /* Other rules */
 /*---GENERAL---*/
+
+* {
+  --green-vinted: #0cadb7;
+  box-sizing: border-box;
+}
+
 body {
   height: 100%;
   background-color: #eaedee;
@@ -31,6 +37,32 @@ form > input {
   justify-content: space-between;
 }
 
+.white-btn {
+  width: 100px;
+  height: 25px;
+  border: 1px solid var(--green-vinted);
+  color: var(--green-vinted);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.green-btn {
+  width: auto;
+  height: 25px;
+  border: 1px solid var(--green-vinted);
+  color: white;
+  background-color: var(--green-vinted);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/*--- ---*/
 hr {
   width: 90%;
   margin-top: 30px;
@@ -92,4 +124,38 @@ hr {
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.signup-page,
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-page p,
+.login-page p {
+  font-size: 25px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+form > input {
+  width: 260px;
+  height: 45px;
+  border-radius: 10px;
+  border: 0px solid;
+  padding: 10px;
+}
+
+form > input:nth-child(4),
+.login-page input:nth-child(3) {
+  width: 268px;
+  height: 45px;
+  background-color: var(--green-vinted);
+
+  color: white;
 }

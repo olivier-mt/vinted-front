@@ -11,18 +11,24 @@ const Header = ({ token, setToken }) => {
 
   return (
     <div className="header">
-      <img src={Logo} alt="" className="logo"></img>
+      <Link to={"/"}>
+        <img src={Logo} alt="" className="logo"></img>
+      </Link>
 
       {token ? (
         <button onClick={handleDisconnection}>Se déconnecter</button>
       ) : (
         <>
-          <Link to={"/signup"}>S'inscrire</Link>
-          <Link to={"/login"}>Se connecter</Link>
+          <Link to={"/signup"} className="white-btn">
+            S'inscrire
+          </Link>
+          <Link to={"/login"} className="white-btn">
+            Se connecter
+          </Link>
         </>
       )}
 
-      <button>Vends tes articles</button>
+      <button className="green-btn">Vends tes articles</button>
     </div>
   );
 };
