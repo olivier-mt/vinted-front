@@ -1,5 +1,5 @@
 /* Other rules */
-
+/*---GENERAL---*/
 body {
   height: 100%;
   background-color: #eaedee;
@@ -7,6 +7,28 @@ body {
 
 img {
   object-fit: cover;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form > input {
+  margin-bottom: 10px;
+}
+
+/*----HEADER----*/
+.logo {
+  width: 75px;
+}
+
+.header {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  justify-content: space-between;
 }
 
 hr {
