@@ -21,8 +21,13 @@ const Signup = () => {
         }
       );
 
+      // A EFFACER
       console.log("submited");
       console.log(response);
+
+      //PUT TOKEN ON COOKIE
+
+      // REDIRECT TO HOMEPAGE
     } catch (error) {
       console.log(error);
     }
