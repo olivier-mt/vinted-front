@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
 
-const Signup = () => {
+const Signup = ({ setToken }) => {
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -24,11 +25,17 @@ const Signup = () => {
         }
       );
 
-      // A EFFACER
-      console.log("submited");
-      console.log(response);
+      // GET TOKEN
 
-      //PUT TOKEN ON COOKIE
+      const newToken = response.data.token;
+
+      //PUT TOKEN IN STATE
+
+      setToken(newToken);
+
+      // SET NEW COOKIE (does not work)
+
+      Cookies.set("token", newToken, { expires: 10 });
 
       // REDIRECT TO HOMEPAGE
 
