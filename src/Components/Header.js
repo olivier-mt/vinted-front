@@ -16,7 +16,9 @@ const Header = ({ token, setToken }) => {
       </Link>
 
       {token ? (
-        <button onClick={handleDisconnection}>Se déconnecter</button>
+        <button onClick={handleDisconnection} className="red-btn">
+          Se déconnecter
+        </button>
       ) : (
         <>
           <Link to={"/signup"} className="white-btn">
