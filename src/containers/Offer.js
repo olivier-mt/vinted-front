@@ -57,14 +57,16 @@ const Offer = () => {
             )}
           </div>
 
-          {<hr />}
+          {<hr style={{ opacity: "20%" }} />}
 
           <div>{data.product_name}</div>
           <div>{data.product_description}</div>
           <div className="offer-owner">
             <img src={data.owner.account.avatar.secure_url} alt="" />
-            {`${data.owner.account.username}`}
+            <span>{`${data.owner.account.username}`}</span>
           </div>
+
+          <div className="buy-btn">Acheter</div>
         </div>
       </div>
     </div>

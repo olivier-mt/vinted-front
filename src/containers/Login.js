@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = ({ setToken }) => {
   const [email, setEmail] = useState();
@@ -61,6 +62,7 @@ const Login = ({ setToken }) => {
           }}
         />
         <input type="submit" value="Se connecter" />
+        <Link to={"/signup"}>Pas encore de compte ? Inscris-toi !</Link>
       </form>
     </div>
   );
