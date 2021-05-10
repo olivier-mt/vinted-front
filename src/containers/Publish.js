@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const Publish = () => {
+const Publish = ({ token }) => {
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
   const [price, setPrice] = useState();
@@ -12,17 +12,44 @@ const Publish = () => {
   const [color, setColor] = useState();
   const [picture, setPicture] = useState();
 
-  const handleOnSubmit = async () => {
+  const handleOnSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("price", price);
+    formData.append("condition", condition);
+    formData.append("city", city);
+    formData.append("brand", brand);
+    formData.append("size", size);
+    formData.append("color", color);
+    formData.append("picture", picture);
+
     try {
-      const response = axios.post("");
-    } catch (error) {}
+      const response = await axios.post(
+        "https://vintedproject.herokuapp.com/offer/publish",
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      console.log(response.data);
+      return alert("Annonce publié!");
+    } catch (error) {
+      console.log(error.message);
+      return alert("l'annonce n'a pas été publié");
+    }
   };
 
   return (
     <>
       <div>
         <p>Vendre un article</p>
-        <form action="">
+        <form action="" onSubmit={handleOnSubmit}>
           <input
             type="text"
             name="title"
@@ -104,6 +131,7 @@ const Publish = () => {
               setPicture(event.target.files[0]);
             }}
           />
+          <input type="submit" value="Envoyer" />
         </form>
       </div>
     </>

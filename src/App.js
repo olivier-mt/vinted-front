@@ -35,7 +35,7 @@ function App() {
         </Route>
 
         <Route path="/publish">
-          {token ? <Publish /> : <Redirect to="/login" />}
+          {token ? <Publish token={token} /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/">
