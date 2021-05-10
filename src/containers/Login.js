@@ -42,6 +42,12 @@ const Login = ({ setToken }) => {
   };
 
   return (
+    /* <ReactModal
+      isOpen={modal}
+      style={customStyles}
+      closeTimeoutMS={2000}
+      parentSelector={() => document.querySelector(".header")}
+    >*/
     <div className="login-page">
       <p>Se connecter</p>
       <form action="" onSubmit={handleOnSubmit}>
@@ -65,6 +71,7 @@ const Login = ({ setToken }) => {
         <Link to={"/signup"}>Pas encore de compte ? Inscris-toi !</Link>
       </form>
     </div>
+    /* </ReactModal>*/
   );
 };
 

@@ -30,7 +30,9 @@ const Header = ({ token, setToken }) => {
         </>
       )}
 
-      <button className="green-btn">Vends tes articles</button>
+      <Link to="/publish" className="green-btn">
+        Vends tes articles
+      </Link>
     </div>
   );
 };

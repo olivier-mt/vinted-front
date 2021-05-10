@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Article from "../Components/Article";
 import Cookies from "js-cookie";
+import ReactModal from "react-modal";
+import Login from "./Login";
 
-const Home = ({ token }) => {
+const Home = ({ token, modal }) => {
   let test = Cookies.get("token");
   console.log(test);
 
@@ -28,10 +30,25 @@ const Home = ({ token }) => {
     fetchData();
   }, []);
 
+  //MODAL STYLE
+  const customStyles = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+    },
+  };
+
   return isLoading ? (
     "isLoding"
   ) : (
-    <div>
+    <div className="home">
+      <ReactModal isOpen={modal} style={customStyles}>
+        <Login />
+      </ReactModal>
       <Hero />
       {/*RETURN EACH ARTICLE FROM DATA*/}
       <div className="home-articles">
