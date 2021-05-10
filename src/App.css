@@ -24,19 +24,9 @@ form {
 form > input {
   margin-bottom: 10px;
 }
-/*---MODAL---*/
-
-.ReactModal__Overlay {
-  opacity: 0;
-  transition: opacity 2000ms ease-in-out;
-}
-
-.ReactModal__Overlay--after-open {
-  opacity: 1;
-}
-
-.ReactModal__Overlay--before-close {
-  opacity: 0;
+/*---DRAG n DROP---*/
+.dropzone {
+  background-color: white;
 }
 
 /*---- HERO ----*/
@@ -133,7 +123,7 @@ form > input {
   border: 0px solid;
 }
 
-/*--- ---*/
+/*--- HOME---*/
 
 .home-articles {
   display: flex;
@@ -307,4 +297,36 @@ form > input:nth-child(4),
 
   margin-top: 20px;
   border-radius: 5px;
+}
+
+/*----PUBLISH ----*/
+
+.publish {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.publish > form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.publish > form > input {
+  background-color: white;
+  width: 300px;
+}
+
+.publish > form > div {
+  background-color: white;
+  width: 300px;
+  margin-bottom: 30px;
+  color: black;
+}
+
+.publish > form > input:last-child {
+  background-color: var(--green-vinted);
+  color: white;
 }

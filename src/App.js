@@ -16,6 +16,12 @@ import Publish from "./containers/Publish";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("token") || 0);
+  const [fromPublish, setFromPublish] = useState(false);
+
+  const redirectToLogin = () => {
+    setFromPublish(true);
+    return <Redirect to="/login" />;
+  };
 
   return (
     <Router>
@@ -31,11 +37,11 @@ function App() {
         </Route>
 
         <Route path="/login">
-          <Login setToken={setToken} />
+          <Login setToken={setToken} fromPublish={fromPublish} />
         </Route>
 
         <Route path="/publish">
-          {token ? <Publish token={token} /> : <Redirect to="/login" />}
+          {token ? <Publish token={token} /> : redirectToLogin}
         </Route>
 
         <Route path="/">

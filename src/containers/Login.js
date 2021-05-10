@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const Login = ({ setToken }) => {
+const Login = ({ setToken, fromPublish }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -33,6 +33,10 @@ const Login = ({ setToken }) => {
       setToken(token);
 
       history.push("/");
+
+      {
+        fromPublish ? history.push("/publish") : history.push("/");
+      }
 
       console.log("Logged In ===>", token);
     } catch (error) {
