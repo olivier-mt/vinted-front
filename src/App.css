@@ -24,10 +24,6 @@ form {
 form > input {
   margin-bottom: 10px;
 }
-/*---DRAG n DROP---*/
-.dropzone {
-  background-color: white;
-}
 
 /*---- HERO ----*/
 
@@ -329,4 +325,9 @@ form > input:nth-child(4),
 .publish > form > input:last-child {
   background-color: var(--green-vinted);
   color: white;
+}
+
+.drag {
+  color: lightgray;
+  background-color: lightpink;
 }

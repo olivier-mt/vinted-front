@@ -1,6 +1,27 @@
 import { useState } from "react";
 import axios from "axios";
 import { useDropzone } from "react-dropzone";
+import React, { useMemo } from "react";
+
+/**---STYLE DROP BOX---**/
+
+const baseStyle = {
+  flex: 1,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  padding: "20px",
+  borderWidth: 2,
+  borderRadius: 2,
+  borderColor: "#eeeeee",
+  borderStyle: "dashed",
+  backgroundColor: "#fafafa",
+  color: "#bdbdbd",
+  outline: "none",
+  transition: "border .24s ease-in-out",
+};
+
+/**-----**/
 
 const Publish = ({ token }) => {
   const [title, setTitle] = useState();
@@ -20,6 +41,17 @@ const Publish = ({ token }) => {
   };
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+
+  /*---UseMemo--*/
+
+  const style = useMemo(
+    () => ({
+      ...baseStyle,
+    }),
+    []
+  );
+
+  /*-------------*/
 
   const handleOnSubmit = async (event) => {
     event.preventDefault();
@@ -130,7 +162,7 @@ const Publish = ({ token }) => {
             setColor(event.target.value);
           }}
         />
-        <input
+        {/* <input
           type="file"
           name="picture"
           id=""
@@ -138,15 +170,17 @@ const Publish = ({ token }) => {
           onChange={(event) => {
             setPicture(event.target.files[0]);
           }}
-        />
+        /> */}
         {/* DRAG n DROP*/}
 
-        <div {...getRootProps()}>
-          <input {...getInputProps()} />
-          {isDragActive ? (
-            <p>Drop the files here ...</p>
+        <div {...getRootProps({ style })}>
+          <input {...getInputProps()} className="drag" />
+          {picture ? (
+            <p>{picture.name}</p>
+          ) : isDragActive ? (
+            <p>Glisse une photo ici...</p>
           ) : (
-            <p>Drag 'n' drop some files here, or click to select files</p>
+            <p>Glisse une photo ici, ou clique pour en selectioner une </p>
           )}
         </div>
 
