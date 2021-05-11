@@ -331,3 +331,51 @@ form > input:nth-child(4),
   color: lightgray;
   background-color: lightpink;
 }
+
+/*---PAYMENT----*/
+
+.payment {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.payment > div {
+  width: 500px;
+  background-color: white;
+  padding: 30px;
+}
+
+.payment > div > p {
+  display: flex;
+  justify-content: space-between;
+  color: gray;
+  font-weight: 300;
+}
+
+.payment > div > p:first-child {
+  color: grey;
+  font-weight: 400;
+  margin-bottom: 40px;
+  font-size: 18px;
+}
+
+.payment > div > div {
+  margin: 30px 0;
+}
+
+.payment > div > div > span {
+  font-weight: 600;
+}
+
+.card-elem > form > div {
+  /* border: 1px solid grey; */
+  padding: 8px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px gainsboro;
+}
+
+.card-elem > form > input {
+  background-color: #00c06d;
+  margin: 30px auto;
+}

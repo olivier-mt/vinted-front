@@ -13,6 +13,7 @@ import Header from "./Components/Header";
 import Cookies from "js-cookie";
 import Login from "./containers/Login";
 import Publish from "./containers/Publish";
+import Payment from "./containers/Payment";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("token") || 0);
@@ -42,6 +43,10 @@ function App() {
 
         <Route path="/publish">
           {token ? <Publish token={token} /> : redirectToLogin}
+        </Route>
+
+        <Route path="/payment">
+          <Payment token={token} />
         </Route>
 
         <Route path="/">

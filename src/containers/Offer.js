@@ -1,12 +1,14 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const Offer = () => {
+const Offer = ({ token }) => {
   const { id } = useParams();
 
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+
+  const history = useHistory();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,8 +21,14 @@ const Offer = () => {
     };
 
     fetchData();
-    console.log("data==>", data);
   }, [id]);
+
+  const handleOnClick = () => {
+    history.push("/payment", {
+      title: data.product_name,
+      price: data.product_price,
+    });
+  };
 
   return isLoading ? (
     "Is Loading ..."
@@ -66,7 +74,9 @@ const Offer = () => {
             <span>{`${data.owner.account.username}`}</span>
           </div>
 
-          <div className="buy-btn">Acheter</div>
+          <div onClick={handleOnClick} className="buy-btn">
+            Acheter
+          </div>
         </div>
       </div>
     </div>
