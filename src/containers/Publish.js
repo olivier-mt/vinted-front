@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useDropzone } from "react-dropzone";
 import React, { useMemo } from "react";
+import { Redirect } from "react-router-dom";
 
 /**---STYLE DROP BOX---**/
 
@@ -23,7 +24,7 @@ const baseStyle = {
 
 /**-----**/
 
-const Publish = ({ token }) => {
+const Publish = ({ token, setFrom }) => {
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
   const [price, setPrice] = useState();
@@ -33,6 +34,8 @@ const Publish = ({ token }) => {
   const [size, setSize] = useState();
   const [color, setColor] = useState();
   const [picture, setPicture] = useState();
+
+  setFrom("publish");
 
   const onDrop = (acceptedFiles) => {
     // Do something with the files
@@ -86,7 +89,7 @@ const Publish = ({ token }) => {
     }
   };
 
-  return (
+  return token ? (
     <div className="publish">
       <p>Vendre un article</p>
       <form action="" onSubmit={handleOnSubmit}>
@@ -188,6 +191,8 @@ const Publish = ({ token }) => {
         <input type="submit" value="Envoyer" />
       </form>
     </div>
+  ) : (
+    <Redirect to={"/login"} />
   );
 };
 

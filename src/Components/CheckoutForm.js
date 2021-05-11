@@ -2,10 +2,9 @@ import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { useState } from "react";
 
-const CheckoutForm = ({ title, price, token }) => {
+const CheckoutForm = ({ title, price }) => {
   const stripe = useStripe();
   const elements = useElements();
-  const [successMessage, setSuccessMessage] = useState("");
 
   const handleSubmit = async (event) => {
     try {

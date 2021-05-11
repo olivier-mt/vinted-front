@@ -5,14 +5,16 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../Components/CheckoutForm";
 
-const Payment = ({ token }) => {
+const Payment = ({ token, setFrom }) => {
   const { id } = useParams();
   const location = useLocation();
   const { price, title } = location.state;
   const [offertData, setOfferData] = useState();
+  const [paymentInProcess, setPaymentInProcess] = useState(false);
 
   const newPrice = price + 0.4 + 0.8;
   const newPriceFixed = newPrice.toFixed(2);
+  setFrom("payment");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,11 +25,7 @@ const Payment = ({ token }) => {
       setOfferData(response.data);
     };
 
-    console.log("response ==>", offertData);
-
     fetchData();
-
-    console.log(" the data ==>", offertData);
   }, []);
 
   const stripePromise = loadStripe(
@@ -60,7 +58,12 @@ const Payment = ({ token }) => {
         <Elements stripe={stripePromise}>
           <hr style={{ opacity: "20%" }} />
 
-          <CheckoutForm title={title} price={newPriceFixed} token={token} />
+          <CheckoutForm
+            title={title}
+            price={newPriceFixed}
+            token={token}
+            setPaymentInProcess={setPaymentInProcess}
+          />
         </Elements>
       </div>
     </div>

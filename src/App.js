@@ -14,15 +14,11 @@ import Cookies from "js-cookie";
 import Login from "./containers/Login";
 import Publish from "./containers/Publish";
 import Payment from "./containers/Payment";
+import { useStripe } from "@stripe/react-stripe-js";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("token") || 0);
-  const [fromPublish, setFromPublish] = useState(false);
-
-  const redirectToLogin = () => {
-    setFromPublish(true);
-    return <Redirect to="/login" />;
-  };
+  const [from, setFrom] = useState();
 
   return (
     <Router>
@@ -38,19 +34,19 @@ function App() {
         </Route>
 
         <Route path="/login">
-          <Login setToken={setToken} fromPublish={fromPublish} />
+          <Login setToken={setToken} from={from} />
         </Route>
 
         <Route path="/publish">
-          {token ? <Publish token={token} /> : redirectToLogin}
+          <Publish token={token} setFrom={setFrom} />
         </Route>
 
         <Route path="/payment">
-          <Payment token={token} />
+          <Payment token={token} setFrom={setFrom} />
         </Route>
 
         <Route path="/">
-          <Home />
+          <Home token={token} />
         </Route>
       </Switch>
     </Router>
