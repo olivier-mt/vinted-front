@@ -26,11 +26,14 @@ const CheckoutForm = ({ title, price, token }) => {
 
       // Send token & info to Backend
 
-      const response = await axios.post("http://localhost:3000/offer/pay", {
-        stripeToken: stripeToken,
-        amount: price,
-        title: title,
-      });
+      const response = await axios.post(
+        "https://vintedproject.herokuapp.com/offer/pay",
+        {
+          stripeToken: stripeToken,
+          amount: price,
+          title: title,
+        }
+      );
 
       if (response.status === 200) {
         alert("Paiement effectué");
